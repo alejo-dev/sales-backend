@@ -8,7 +8,6 @@ export class UsersTypeformRepository extends UsersRepository {
     const userEntity = await UserEntity.findOne({
       where: { user: user, password: password },
     });
-    console.log(userEntity);
     if (userEntity) {
       return new User(userEntity.id, userEntity.user);
     }

@@ -15,7 +15,6 @@ export class AuthService {
   async signIn(username: string, password: string): Promise<any> {
     const query = new FindUserQuery(username, password);
     const user = await this.findUserQueryHandler.execute(query);
-    console.log("Este es el usuario =>", user);
     if (!user) {
       throw new UnauthorizedException();
     }
