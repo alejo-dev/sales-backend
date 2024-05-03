@@ -12,11 +12,12 @@
     "start:debug": "nest start --debug --watch",
     "start:prod": "node dist/main",
     "lint": "eslint \"{src,apps,libs,test}/**/*.ts\" --fix",
-    "test": "jest",
-    "test:watch": "jest --watch",
-    "test:cov": "jest --coverage",
-    "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
-    "test:e2e": "jest --config ./test/jest-e2e.json"
+    "test": "TZ='America/Bogota' jest --maxWorkers=30% --silent --config ./tsconfig.unit-test.json",
+    "test:ci": "TZ='America/Bogota' jest --silent --config ./tsconfig.unit-test.json",
+    "test:watch": "TZ='America/Bogota' jest --silent --config ./tsconfig.unit-test.json --watch",
+    "test:cov": "TZ='America/Bogota' jest --silent --config ./tsconfig.unit-test.json --coverage",
+    "test:debug": "TZ='America/Bogota' node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
+    "test:e2e": "TZ='America/Bogota' jest --silent --config ./test/jest-e2e.json"
   },
   "dependencies": {
     "@nestjs/common": "^10.0.0",
